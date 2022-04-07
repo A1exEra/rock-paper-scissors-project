@@ -7,11 +7,6 @@ const buttonClick = document.querySelectorAll(".button");
 const playAgain = document.querySelector("#reset");
 const computerScore = document.querySelector("#comp_score");
 const playerScore = document.querySelector("#player_score");
-// console.log(buttonClick);
-// console.log(computerChoise);
-// console.log(humanChoise);
-// console.log(result);
-// console.log(playAgain);
 
 //Implementing score
 let compScore = 0;
@@ -114,8 +109,8 @@ function gameReset() {
 //7. implementing the ENDGAME
 function endGame() {
   if (humanScore === 10) {
-    alert("You won the game!");
     gameReset();
+    alert("You won the game!");
   }
   if (compScore === 10) {
     gameReset();
