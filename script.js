@@ -17,19 +17,19 @@ let playerChoise;
 buttonClick.forEach((button) =>
   button.addEventListener("click", function (e) {
     playerChoise = e.target.textContent;
-    console.log(playerChoise);
-    humanChoise.innerHTML = playerChoise;
+    humanChoise.textContent = playerChoise;
     computer();
     displayResult();
     computerScore.textContent = compScore;
     playerScore.textContent = humanScore;
     endGame();
+    console.log(compScore);
+    console.log(humanScore);
   })
 );
 //3.create random choise for the computer and display the result in the computer field
 function computer() {
   const randomChoise = Math.trunc(Math.random() * 3) + 1;
-  console.log(randomChoise);
   if (randomChoise === 1) computerChoise.textContent = `Rock`;
   if (randomChoise === 2) computerChoise.textContent = `Paper`;
   if (randomChoise === 3) computerChoise.textContent = `Scissors`;
@@ -38,9 +38,6 @@ function computer() {
 function displayResult() {
   if (humanChoise.textContent === computerChoise.textContent) {
     result.textContent = `It's a DRAW!`;
-    console.log(`It's a draw!`);
-    compScore++;
-    humanScore++;
   }
   if (
     humanChoise.textContent === `Rock` &&
@@ -48,7 +45,6 @@ function displayResult() {
   ) {
     result.textContent = `Player WINS!`;
     humanScore++;
-    console.log(`Player WINS!`);
   }
   if (
     humanChoise.textContent === `Rock` &&
@@ -56,7 +52,6 @@ function displayResult() {
   ) {
     compScore++;
     result.textContent = `Computer WINS!`;
-    console.log(`Computer WINS!`);
   }
   if (
     humanChoise.textContent === `Paper` &&
@@ -64,7 +59,6 @@ function displayResult() {
   ) {
     compScore++;
     result.textContent = `Computer WINS!`;
-    console.log(`Computer WINS!`);
   }
   if (
     humanChoise.textContent === `Paper` &&
@@ -72,7 +66,6 @@ function displayResult() {
   ) {
     humanScore++;
     result.textContent = `Player WINS!`;
-    console.log(`Player WINS!`);
   }
   if (
     humanChoise.textContent === `Scissors` &&
@@ -80,7 +73,6 @@ function displayResult() {
   ) {
     humanScore++;
     result.textContent = `Player WINS!`;
-    console.log(`Player WINS!`);
   }
   if (
     humanChoise.textContent === `Scissors` &&
@@ -88,7 +80,6 @@ function displayResult() {
   ) {
     compScore++;
     result.textContent = `Computer WINS!`;
-    console.log(`Computer WINS!`);
   }
 }
 //5.display the result in the result field
@@ -104,7 +95,6 @@ function gameReset() {
   playerScore.textContent = "0";
   compScore = 0;
   humanScore = 0;
-  console.log(`play again`);
 }
 //7. implementing the ENDGAME
 function endGame() {
